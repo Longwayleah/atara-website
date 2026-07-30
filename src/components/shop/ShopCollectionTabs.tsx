@@ -8,8 +8,7 @@ import { cn } from "@/lib/utils/cn";
 
 const tabs: { id: ShopFilter; label: string; href: string }[] = [
   { id: "all", label: "All", href: "/shop" },
-  { id: "core", label: "Core", href: "/shop?collection=core" },
-  { id: "intimacy", label: "Intimacy", href: "/shop?collection=intimacy" },
+  { id: "core", label: "Protocols", href: "/shop?collection=core" },
 ];
 
 type Indicator = {

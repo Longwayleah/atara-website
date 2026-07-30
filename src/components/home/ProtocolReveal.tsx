@@ -73,11 +73,7 @@ export function ProtocolReveal() {
                 fill
                 quality={90}
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className={
-                  card.panelFit === "contain"
-                    ? "object-contain object-center p-12"
-                    : "object-cover object-center"
-                }
+                className="object-cover object-center"
                 priority={index === 0}
               />
             </div>
