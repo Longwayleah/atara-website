@@ -50,9 +50,9 @@ export const images = {
 } as const;
 
 export const ataraProducts = {
-  radiance: "/products/Atara_Radiance_Protocol_GHK-Cu_Scaled.png",
-  recovery: "/products/Atara_Recovery_Protocol_TB-500_BPC-157.png",
-  renew: "/products/Atara_Renew_Protocol_NAD-Plus.png",
+  radiance: "/products/Atara_Radiance_Protocol_Lifestyle.png",
+  recovery: "/products/Atara_Recovery_Protocol_Lifestyle.png",
+  renew: "/products/Atara_Renew_Protocol_Lifestyle.png",
 } as const;
 
 export type ModelKey = keyof typeof models;

@@ -32,7 +32,7 @@ export const products: Product[] = [
     slug: "glow",
     descriptor:
       "Support for healthy-looking skin, radiance, and cellular function.",
-    image: "/products/Atara_Radiance_Protocol_GHK-Cu_Scaled.png",
+    image: "/products/Atara_Radiance_Protocol_Lifestyle.png",
     featured: true,
     collection: "core",
     variants: [
@@ -51,7 +51,7 @@ export const products: Product[] = [
     slug: "bpc-tb500",
     descriptor:
       "Support for recovery, repair, and overall physical performance.",
-    image: "/products/Atara_Recovery_Protocol_TB-500_BPC-157.png",
+    image: "/products/Atara_Recovery_Protocol_Lifestyle.png",
     featured: true,
     collection: "core",
     variants: [
@@ -70,7 +70,7 @@ export const products: Product[] = [
     slug: "nad-plus",
     descriptor:
       "Support for cellular energy, longevity, and metabolic health.",
-    image: "/products/Atara_Renew_Protocol_NAD-Plus.png",
+    image: "/products/Atara_Renew_Protocol_Lifestyle.png",
     featured: true,
     collection: "core",
     variants: [
