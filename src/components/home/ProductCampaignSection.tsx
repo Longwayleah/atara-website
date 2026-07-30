@@ -52,10 +52,10 @@ export function ProductCampaignSection() {
           src={protocols.campaignImage}
           alt={protocols.campaignAlt}
           fill
-          quality={90}
+          quality={75}
           sizes="100vw"
           className="object-contain object-center"
-          priority
+          loading="lazy"
         />
       </div>
     </section>

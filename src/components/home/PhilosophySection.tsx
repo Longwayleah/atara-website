@@ -45,9 +45,10 @@ export function PhilosophySection() {
           src={philosophy.image}
           alt={philosophy.imageAlt}
           fill
-          quality={90}
+          quality={75}
           sizes="100vw"
           className="object-cover object-center"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-archon-charcoal/35" />
         <div className="absolute inset-0 bg-gradient-to-t from-archon-charcoal/70 via-archon-charcoal/20 to-transparent" />

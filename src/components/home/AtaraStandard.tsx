@@ -42,19 +42,20 @@ export function AtaraStandard() {
       className="relative overflow-hidden bg-[#3E3934]"
       aria-label={standard.imageAlt}
     >
-      <div className="relative flex min-h-[100svh] items-center justify-center px-5 py-16 md:px-10 md:py-24 lg:justify-end lg:pr-[8%] xl:pr-[12%]">
+      <div className="relative flex min-h-[100svh] items-center justify-center px-5 py-16 md:px-10 md:py-24">
         <Image
           src={standard.image}
           alt={standard.imageAlt}
           fill
-          quality={90}
+          quality={75}
           sizes="100vw"
           className="object-cover object-center"
+          loading="lazy"
         />
 
         <div
           data-reveal
-          className="relative z-10 w-full max-w-md bg-[#F5F1EB] px-8 py-10 text-[#3E3934] md:max-w-lg md:px-12 md:py-14"
+          className="relative z-10 mx-auto w-full max-w-md bg-[#F5F1EB] px-8 py-10 text-[#3E3934] md:max-w-lg md:px-12 md:py-14"
         >
           <p className="font-body text-[10px] font-medium uppercase tracking-[0.32em] text-[#8B7B6A]">
             {standard.label}

@@ -71,10 +71,10 @@ export function ProtocolReveal() {
                 src={card.panelImage}
                 alt={`${card.name} protocol`}
                 fill
-                quality={90}
+                quality={75}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-center"
-                priority={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
               />
             </div>
 

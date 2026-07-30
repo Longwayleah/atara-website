@@ -47,7 +47,7 @@ export default function ShopPage() {
             <ProductCard
               key={product.id}
               product={product}
-              priority={index < 4}
+              priority={index < 2}
               className="shop-product-card--mobile-grid"
             />
           ))}

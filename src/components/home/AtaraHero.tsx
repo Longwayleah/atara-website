@@ -27,7 +27,7 @@ export function AtaraHero() {
           alt="Atara — serene editorial portrait"
           fill
           priority
-          quality={90}
+          quality={75}
           sizes="100vw"
           className="object-cover object-[70%_15%] md:object-[center_12%]"
         />

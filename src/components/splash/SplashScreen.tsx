@@ -8,7 +8,7 @@ import { useAppStore } from "@/store/useAppStore";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 const SPLASH_KEY = "atara-splash-seen";
-const REPLAY_SPLASH_IN_DEV = process.env.NODE_ENV === "development";
+const REPLAY_SPLASH_IN_DEV = false;
 const NAVY = "#3E3934";
 const WATERMARK_COLOR = "rgb(62 57 52 / 0.08)";
 
@@ -284,11 +284,21 @@ export function SplashScreen() {
 
   useEffect(() => {
     requestAnimationFrame(() => {
+      // Atara homepage has no legacy hero wordmark letters — never block paint.
+      const hasHeroWordmark =
+        typeof document !== "undefined" &&
+        document.querySelectorAll(".hero-top-wordmark .wordmark-letter").length > 0;
+
+      if (!hasHeroWordmark || hasSeenSplash()) {
+        setSplashComplete(true);
+        document.body.style.overflow = "";
+        setMounted(true);
+        return;
+      }
+
       if (REPLAY_SPLASH_IN_DEV) {
         setSplashComplete(false);
         gsap.set("main", { autoAlpha: 0, y: 8 });
-      } else if (hasSeenSplash()) {
-        setSplashComplete(true);
       } else {
         gsap.set("main", { autoAlpha: 0, y: 8 });
       }
@@ -297,7 +307,7 @@ export function SplashScreen() {
 
     const fallback = window.setTimeout(() => {
       revealSite(setSplashComplete);
-    }, 12000);
+    }, 4000);
 
     return () => window.clearTimeout(fallback);
   }, [setSplashComplete]);

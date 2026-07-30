@@ -44,9 +44,10 @@ export function EditorialMoment() {
         src={editorial.image}
         alt={editorial.imageAlt}
         fill
-        quality={90}
+        quality={75}
         sizes="100vw"
         className="object-cover object-center"
+        loading="lazy"
       />
       {/* Soft veil so Soft Ivory type stays legible on the stone */}
       <div className="absolute inset-0 bg-[#3E3934]/28" />

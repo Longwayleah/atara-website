@@ -20,7 +20,8 @@ export const useAppStore = create<AppState>((set) => ({
   isMenuOpen: false,
   isLoading: false,
   isSplashActive: false,
-  splashComplete: false,
+  /** Start complete so Lenis/UI never wait on splash for Atara. */
+  splashComplete: true,
   welcomeForCheckout: false,
   setMenuOpen: (open) => set({ isMenuOpen: open }),
   toggleMenu: () => set((s) => ({ isMenuOpen: !s.isMenuOpen })),
