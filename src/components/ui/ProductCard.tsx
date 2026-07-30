@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import type { Product } from "@/config/products";
 import {
   getProductCatalogIndex,
@@ -51,10 +52,21 @@ export function ProductCard({
   const shortName = getProtocolShortName(product.name);
   const eyebrow = getProtocolEyebrow(product.name);
   const specLine = getSpecLine(product, dosageLabel);
+  const imageScale = product.imageFit?.scale ?? 1;
+  const imagePosition = product.imageFit?.position ?? "50% 50%";
 
   return (
     <article className={cn("product-editorial-card group", className)} {...rest}>
-      <Link href={`/shop/${product.slug}`} className="product-editorial-card__media">
+      <Link
+        href={`/shop/${product.slug}`}
+        className="product-editorial-card__media"
+        style={
+          {
+            "--card-photo-scale": String(imageScale),
+            "--card-photo-position": imagePosition,
+          } as CSSProperties
+        }
+      >
         {indexLabel ? (
           <span className="product-editorial-card__index" aria-hidden>
             {indexLabel}
@@ -64,7 +76,7 @@ export function ProductCard({
           src={product.image}
           alt={imageAlt}
           fill
-          className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          className="product-editorial-card__photo"
           sizes="(max-width: 639px) 50vw, (max-width: 1024px) 45vw, 360px"
           priority={priority}
         />
@@ -95,7 +107,12 @@ export function ProductCard({
               size="sm"
               variant="ghost"
               className="product-editorial-card__add"
-              label="Add to bag +"
+              label={
+                <>
+                  <span className="product-editorial-card__add-full">Add to bag +</span>
+                  <span className="product-editorial-card__add-short">Add +</span>
+                </>
+              }
               showAddedState={false}
             />
           ) : null}

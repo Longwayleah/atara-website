@@ -79,9 +79,15 @@ function getHomeHeaderMotion(
   };
 }
 
-function getHomeHeaderMetrics() {
-  const hero = document.querySelector("main section:first-child");
-  const heroHeight = hero ? (hero as HTMLElement).offsetHeight : window.innerHeight;
+function getHomeHeaderMetrics(isHomePage: boolean) {
+  // Inner pages have no cinematic hero — use viewport so fade timing matches home.
+  const hero = isHomePage
+    ? (document.querySelector("main > *:first-child") ??
+      document.querySelector("main section:first-child"))
+    : null;
+  const heroHeight = hero
+    ? (hero as HTMLElement).offsetHeight
+    : window.innerHeight;
   const hideStart = Math.max(180, Math.round(heroHeight * HOME_HEADER_HOLD_RATIO));
   const hideEnd = Math.max(
     hideStart + 200,
@@ -121,21 +127,19 @@ export function Header() {
   const isRevealingHeader = headerMotionDirection === "up";
 
   const scrolled = scrollY > 50;
-  const homeMotion =
-    isHomePage && !isMenuOpen
-      ? getHomeHeaderMotion(
-          scrollY,
-          homeHeaderMetrics.hideStart,
-          homeHeaderMetrics.hideEnd,
-          headerMotionDirection,
-        )
-      : { raw: 0, opacity: 1, translateY: 0, scale: 1 };
-  const homeHeaderInteractive =
-    !isHomePage || isMenuOpen || homeMotion.opacity > 0.04;
+  const headerMotion = !isMenuOpen
+    ? getHomeHeaderMotion(
+        scrollY,
+        homeHeaderMetrics.hideStart,
+        homeHeaderMetrics.hideEnd,
+        headerMotionDirection,
+      )
+    : { raw: 0, opacity: 1, translateY: 0, scale: 1 };
+  const headerInteractive = isMenuOpen || headerMotion.opacity > 0.04;
   const navyReveal = easeOutQuint(
     clamp01((scrollY - 20) / (isRevealingHeader ? 168 : 128)),
   );
-  const navyExit = 1 - easeOutQuart(smoothstep(clamp01(homeMotion.raw / 0.78)));
+  const navyExit = 1 - easeOutQuart(smoothstep(clamp01(headerMotion.raw / 0.78)));
   const navyStrength =
     isHomePage && !isMenuOpen ? navyReveal * navyExit : 0;
   const useNavyBar = navyStrength > 0.32;
@@ -146,13 +150,17 @@ export function Header() {
   }, [pathname, setScroll]);
 
   useEffect(() => {
-    if (!isHomePage) return;
-
-    const updateHideOffset = () => setHomeHeaderMetrics(getHomeHeaderMetrics());
+    const updateHideOffset = () =>
+      setHomeHeaderMetrics(getHomeHeaderMetrics(isHomePage));
     updateHideOffset();
+    // Recalculate after layout paints (shop/content height)
+    const frame = window.requestAnimationFrame(updateHideOffset);
     window.addEventListener("resize", updateHideOffset, { passive: true });
-    return () => window.removeEventListener("resize", updateHideOffset);
-  }, [isHomePage, pathname]);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("resize", updateHideOffset);
+    };
+  }, [pathname, isHomePage]);
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -161,22 +169,22 @@ export function Header() {
     };
   }, [isMenuOpen]);
 
-  const showSolidBar =
-    isHomePage ? navyStrength > 0.04 || homeMotion.raw > 0 : isMenuOpen || scrolled;
+  const showSolidBar = isHomePage
+    ? navyStrength > 0.04 || headerMotion.raw > 0
+    : isMenuOpen || (scrolled && headerMotion.opacity > 0.04);
   const navyBarOpacity = navyStrength;
 
   const homeHeaderTransition = isRevealingHeader
     ? "transform 560ms cubic-bezier(0.16, 1, 0.3, 1), opacity 720ms cubic-bezier(0.22, 1, 0.36, 1)"
     : "transform 260ms cubic-bezier(0.16, 1, 0.3, 1), opacity 320ms cubic-bezier(0.16, 1, 0.3, 1)";
 
-  const homeBarStyle =
-    isHomePage && !isMenuOpen
-      ? {
-          transform: `translate3d(0, ${-homeMotion.translateY}%, 0) scale(${homeMotion.scale})`,
-          opacity: homeMotion.opacity,
-          transition: homeHeaderTransition,
-        }
-      : undefined;
+  const headerBarStyle = !isMenuOpen
+    ? {
+        transform: `translate3d(0, ${-headerMotion.translateY}%, 0) scale(${headerMotion.scale})`,
+        opacity: headerMotion.opacity,
+        transition: homeHeaderTransition,
+      }
+    : undefined;
 
   const mobileMenu =
     mounted &&
@@ -238,10 +246,10 @@ export function Header() {
         )}
       >
         <div
-          style={homeBarStyle}
+          style={headerBarStyle}
           className={cn(
             "relative will-change-[transform,opacity]",
-            !homeHeaderInteractive && "pointer-events-none md:pointer-events-auto",
+            !headerInteractive && "pointer-events-none",
           )}
         >
           {isHomePage && !isMenuOpen && navyBarOpacity > 0.04 ? (

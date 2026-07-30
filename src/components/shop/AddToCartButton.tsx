@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import type { Product } from "@/config/products";
 import { getDefaultVariant } from "@/config/products";
 import { Button } from "@/components/ui/Button";
@@ -14,7 +14,7 @@ type AddToCartButtonProps = {
   size?: "sm" | "md" | "lg";
   variant?: "primary" | "secondary" | "ghost" | "outline";
   className?: string;
-  label?: string;
+  label?: ReactNode;
   showAddedState?: boolean;
 };
 

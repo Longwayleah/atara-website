@@ -16,6 +16,15 @@ export interface Product {
   slug: string;
   descriptor: string;
   image: string;
+  /**
+   * Optical crop for lifestyle photos shot at different distances.
+   * Applied inside the fixed card media frame.
+   */
+  imageFit?: {
+    scale?: number;
+    /** CSS object-position, e.g. "50% 42%" */
+    position?: string;
+  };
   featured?: boolean;
   collection: ProductCollection;
   /** Hide strength/mg labeling — e.g. proprietary blends */
@@ -32,14 +41,14 @@ export const products: Product[] = [
     slug: "glow",
     descriptor:
       "Support for healthy-looking skin, radiance, and cellular function.",
-    image: "/products/Atara_Radiance_Protocol_Lifestyle.png",
+    image: "/products/Atara_Radiance_Card_45.jpg",
     featured: true,
     collection: "core",
     variants: [
       {
         id: "70mg",
         dosage: "70 mg",
-        price: 124.99,
+        price: 75.99,
         squareCheckoutUrl: "https://square.link/u/D3YRcSbf",
       },
     ],
@@ -51,7 +60,7 @@ export const products: Product[] = [
     slug: "bpc-tb500",
     descriptor:
       "Support for recovery, repair, and overall physical performance.",
-    image: "/products/Atara_Recovery_Protocol_Lifestyle.png",
+    image: "/products/Atara_Recovery_Card_45.jpg",
     featured: true,
     collection: "core",
     variants: [
@@ -70,7 +79,7 @@ export const products: Product[] = [
     slug: "nad-plus",
     descriptor:
       "Support for cellular energy, longevity, and metabolic health.",
-    image: "/products/Atara_Renew_Protocol_Lifestyle.png",
+    image: "/products/Atara_Renew_Card_45.jpg",
     featured: true,
     collection: "core",
     variants: [
@@ -79,6 +88,26 @@ export const products: Product[] = [
         dosage: "500 mg",
         price: 109.99,
         squareCheckoutUrl: "https://square.link/u/QRjL35xW",
+      },
+    ],
+  },
+  {
+    id: "essential",
+    name: "Essential Protocol",
+    subtitle: "All 3 Protocols",
+    slug: "essential",
+    descriptor:
+      "Radiance, Recovery, and Renew — the complete Atara system in one set.",
+    image: "/products/Atara_Essential_Card_45.jpg",
+    featured: true,
+    collection: "core",
+    hideDosage: true,
+    variants: [
+      {
+        id: "bundle",
+        dosage: "Bundle",
+        price: 269.99,
+        squareCheckoutUrl: "https://square.link/u/DAMJyn2m",
       },
     ],
   },

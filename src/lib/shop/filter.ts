@@ -19,8 +19,8 @@ export function getShopFilterTitle(filter: ShopFilter) {
 export function getShopFilterDescriptor(filter: ShopFilter) {
   switch (filter) {
     case "core":
-      return "Radiance, Recovery, and Renew — curated for intentional cellular wellness.";
+      return "Radiance, Recovery, Renew, and Essential — curated for intentional cellular wellness.";
     default:
-      return "Radiance, Recovery, and Renew — curated for intentional cellular wellness.";
+      return "Radiance, Recovery, Renew, and Essential — curated for intentional cellular wellness.";
   }
 }

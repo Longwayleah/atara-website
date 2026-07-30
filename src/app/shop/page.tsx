@@ -7,13 +7,14 @@ import { getShopFilterDescriptor, getShopFilterTitle } from "@/lib/shop/filter";
 export const metadata = createPageMetadata({
   title: "Our Protocols",
   description:
-    "Explore Atara protocols — Radiance, Recovery, and Renew — curated for cellular wellness and intentional beauty.",
+    "Explore Atara protocols — Radiance, Recovery, Renew, and Essential — curated for cellular wellness and intentional beauty.",
   path: "/shop",
   keywords: [
     "Atara protocols",
     "Radiance Protocol",
     "Recovery Protocol",
     "Renew Protocol",
+    "Essential Protocol",
     "GHK-Cu",
     "BPC-157",
     "TB-500",
@@ -41,12 +42,12 @@ export default function ShopPage() {
           </div>
         </header>
 
-        <div className="shop-product-grid shop-product-grid--desktop-3">
+        <div className="shop-product-grid shop-product-grid--desktop-4">
           {products.map((product, index) => (
             <ProductCard
               key={product.id}
               product={product}
-              priority={index < 3}
+              priority={index < 4}
               className="shop-product-card--mobile-grid"
             />
           ))}

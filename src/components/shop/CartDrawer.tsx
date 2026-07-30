@@ -50,6 +50,17 @@ export function CartDrawer() {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeCart();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, closeCart]);
+
   const handleBuyAllComplete = () => {
     clearCart();
     setBuyAllComplete(true);
@@ -60,7 +71,7 @@ export function CartDrawer() {
     <>
       <div
         className={cn(
-          "fixed inset-0 z-[80] bg-archon-black/35 transition-opacity duration-300",
+          "fixed inset-0 z-[120] bg-archon-black/35 transition-opacity duration-300",
           isOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         aria-hidden={!isOpen}
@@ -69,9 +80,12 @@ export function CartDrawer() {
 
       <aside
         className={cn(
-          "fixed inset-y-0 right-0 z-[90] flex w-full max-w-md flex-col border-l border-archon-black/10 bg-[#f7f7f7] shadow-[-24px_0_60px_rgba(11,31,58,0.12)] transition-transform duration-300",
-          isOpen ? "translate-x-0" : "translate-x-full",
+          "fixed inset-y-0 right-0 z-[130] flex w-full max-w-md flex-col border-l border-archon-black/10 bg-[#f7f7f7] shadow-[-24px_0_60px_rgba(11,31,58,0.12)] transition-transform duration-300",
+          "pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]",
+          isOpen ? "translate-x-0" : "translate-x-full pointer-events-none",
         )}
+        role="dialog"
+        aria-modal="true"
         aria-hidden={!isOpen}
         aria-label="Shopping cart"
       >
@@ -118,10 +132,13 @@ export function CartDrawer() {
               <button
                 type="button"
                 aria-label="Close cart"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-archon-black/10 text-archon-navy transition-colors hover:border-archon-black/25"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full border border-archon-black/15 bg-white px-3 font-body text-[11px] uppercase tracking-[0.16em] text-archon-navy transition-colors hover:border-archon-black/30"
                 onClick={closeCart}
               >
-                ×
+                <span aria-hidden className="text-lg leading-none">
+                  ×
+                </span>
+                <span>Close</span>
               </button>
             </div>
 
@@ -134,6 +151,15 @@ export function CartDrawer() {
                   <p className="mt-3 max-w-xs font-body text-sm leading-relaxed text-archon-muted">
                     Browse the shop and add protocols to your cart.
                   </p>
+                  <Button
+                    type="button"
+                    size="md"
+                    variant="outline"
+                    className="mt-8 min-h-11 rounded-full px-8"
+                    onClick={closeCart}
+                  >
+                    Continue shopping
+                  </Button>
                 </div>
               ) : (
                 <ul className="space-y-5">

@@ -82,7 +82,7 @@ export const productContentBySlug: Record<string, ProductEditorialContent> = {
       "Extracellular matrix research",
       "Appearance-focused wellness",
     ],
-    protocolSlugs: ["bpc-tb500", "nad-plus"],
+    protocolSlugs: ["bpc-tb500", "nad-plus", "essential"],
     protocolIntro:
       "Radiance Protocol is commonly paired with Recovery Protocol and Renew Protocol as part of Atara’s intentional system.",
   },
@@ -102,7 +102,7 @@ export const productContentBySlug: Record<string, ProductEditorialContent> = {
       "Connective tissue biology",
       "Physical performance pathways",
     ],
-    protocolSlugs: ["glow", "nad-plus"],
+    protocolSlugs: ["glow", "nad-plus", "essential"],
     protocolIntro:
       "Recovery Protocol is commonly paired with Radiance Protocol and Renew Protocol as part of Atara’s intentional system.",
   },
@@ -144,9 +144,29 @@ export const productContentBySlug: Record<string, ProductEditorialContent> = {
       "Longevity-focused wellness",
       "Metabolic health",
     ],
-    protocolSlugs: ["glow", "bpc-tb500"],
+    protocolSlugs: ["glow", "bpc-tb500", "essential"],
     protocolIntro:
       "Renew Protocol is commonly paired with Radiance Protocol and Recovery Protocol as part of Atara’s intentional system.",
+  },
+  essential: {
+    lead:
+      "Essential Protocol brings Radiance, Recovery, and Renew together as one complete Atara system — curated for researchers seeking a full-spectrum approach to cellular wellness.",
+    overview:
+      "The set includes GHK-Cu, TB-500 + BPC-157, and NAD+ protocols at a bundled value versus purchasing each individually.",
+    scientificProfile: {
+      classification: "Complete Protocol System",
+      description:
+        "Essential Protocol combines three complementary research protocols spanning skin vitality, recovery pathways, and cellular energy.",
+    },
+    applications: [
+      "Full-system cellular support",
+      "Skin vitality research",
+      "Recovery & repair pathways",
+      "Cellular energy & longevity",
+    ],
+    protocolSlugs: ["glow", "bpc-tb500", "nad-plus"],
+    protocolIntro:
+      "Essential Protocol includes Radiance Protocol, Recovery Protocol, and Renew Protocol as a unified system.",
   },
   "mots-c": {
     lead:
