@@ -12,7 +12,7 @@ export type CoaRecord = {
 /** COA files live in /public/coa — keyed to product id */
 export const coaRecords: CoaRecord[] = [
   {
-    productId: "retatrutide",
+    productId: "refine",
     file: "/coa/retatrutide.png",
     batchId: "251005RT1032",
     lotNumber: "RET1025",

@@ -48,7 +48,7 @@ export function ProtocolReveal() {
       ref={sectionRef}
       id="protocols"
       className="bg-[#F5F1EB] text-[#3E3934]"
-      aria-label="Three protocols"
+      aria-label="Our protocols"
     >
       {panels.map((card, index) => {
         const imageLeft = index % 2 === 0;

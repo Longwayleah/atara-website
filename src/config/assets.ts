@@ -47,12 +47,14 @@ export const images = {
   protocolRadiancePanel: "/images/atara/Atara_Protocol_Radiance_Panel.png",
   protocolRecoveryPanel: "/images/atara/Atara_Protocol_Recovery_Panel.png",
   protocolRenewPanel: "/images/atara/Atara_Protocol_Renew_Panel.png",
+  protocolRefinePanel: "/images/atara/Atara_Protocol_Refine_Panel.jpg",
 } as const;
 
 export const ataraProducts = {
-  radiance: "/products/Atara_Radiance_Card_45.jpg",
-  recovery: "/products/Atara_Recovery_Card_45.jpg",
+  radiance: "/products/Atara_Radiance_Card_45_v2.jpg",
+  recovery: "/products/Atara_Recovery_Card_45_v2.jpg",
   renew: "/products/Atara_Renew_Card_45.jpg",
+  refine: "/products/Atara_Refine_Card_45_v3.jpg",
   essential: "/products/Atara_Essential_Card_45.jpg",
 } as const;
 

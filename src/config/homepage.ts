@@ -64,7 +64,7 @@ export const homepageCopy = {
     imageAlt: "Champagne water droplet with concentric ripples",
   },
   protocols: {
-    heading: "Three protocols. One intentional system.",
+    heading: "Four protocols. One intentional system.",
     campaignImage: images.ataraCampaign,
     campaignAlt:
       "Atara full product campaign — Radiance, Recovery, Renew protocols with Daily Ritual cream",
@@ -103,6 +103,17 @@ export const homepageCopy = {
         panelImage: images.protocolRenewPanel,
         panelFit: "cover" as const,
         href: "/shop/nad-plus",
+      },
+      {
+        id: "refine",
+        name: "Refine",
+        focus: "Retatrutide",
+        description:
+          "Support for metabolic refinement, body composition, and energy balance — targeting three receptors: GLP, GIP, and glucagon.",
+        image: ataraProducts.refine,
+        panelImage: images.protocolRefinePanel,
+        panelFit: "cover" as const,
+        href: "/shop/refine",
       },
       {
         id: "essential",
@@ -177,15 +188,15 @@ export const homepageCopy = {
   /** Retained keys for shared Archon components still referenced elsewhere */
   featured: {
     eyebrow: "The protocols",
-    headline: "Three protocols. One intentional system.",
+    headline: "Four protocols. One intentional system.",
     viewAllLabel: "View all products",
     viewAllHref: "/shop",
     spotlightSlug: "bpc-tb500",
     spotlightLine:
-      "Recovery, radiance, and renewal—curated as an intentional system.",
+      "Radiance, Recovery, Renew, and Refine—curated as an intentional system.",
     exploreLabel: "Explore protocol",
   },
-  brandStrip: "Radiance. Recovery. Renewal.",
+  brandStrip: "Radiance. Recovery. Renew. Refine.",
   statement: {
     headline: ["Beauty is not", "applied."],
     body: "It is cultivated—supported at the cellular level, completed through ritual.",

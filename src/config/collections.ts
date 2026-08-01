@@ -14,7 +14,7 @@ export const collections: Record<
     eyebrow: "The protocol lineup",
     title: "Our Protocols",
     description:
-      "Radiance, Recovery, Renew, and Essential — intentionally curated cellular-wellness protocols.",
+      "Radiance, Recovery, Renew, Refine, and Essential — intentionally curated cellular-wellness protocols.",
   },
 };
 

@@ -13,7 +13,7 @@ import { getProductImageAlt } from "@/lib/seo/product";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { useAppStore } from "@/store/useAppStore";
 
-const FEATURED_COUNT = 4;
+const FEATURED_COUNT = 5;
 const AUTO_ADVANCE_MS = 3200;
 const CROSSFADE_DURATION = 1.15;
 const COPY_DURATION = 0.85;

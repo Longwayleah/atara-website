@@ -148,6 +148,26 @@ export const productContentBySlug: Record<string, ProductEditorialContent> = {
     protocolIntro:
       "Renew Protocol is commonly paired with Radiance Protocol and Recovery Protocol as part of Atara’s intentional system.",
   },
+  refine: {
+    lead:
+      "Refine Protocol (Retatrutide) is curated to support investigation of metabolic refinement, body composition, and multi-pathway energy signaling — targeting three receptors: GLP, GIP, and glucagon.",
+    overview:
+      "Refine Protocol centers on Retatrutide, a triple-receptor research compound that engages GLP, GIP, and glucagon pathways for interconnected metabolic regulation within the Atara system.",
+    scientificProfile: {
+      classification: "Triple GIP, GLP-1 & Glucagon Receptor Agonist",
+      description:
+        "Retatrutide is a triple receptor agonist studied for simultaneous activation of GIP, GLP-1, and glucagon receptors — enabling investigation of interconnected metabolic pathways within a single research model.",
+    },
+    applications: [
+      "Triple receptor signaling",
+      "Metabolic regulation",
+      "Energy homeostasis",
+      "Body composition research",
+    ],
+    protocolSlugs: ["glow", "bpc-tb500", "nad-plus"],
+    protocolIntro:
+      "Refine Protocol is commonly paired with Radiance, Recovery, and Renew as part of Atara’s intentional system.",
+  },
   essential: {
     lead:
       "Essential Protocol brings Radiance, Recovery, and Renew together as one complete Atara system — curated for researchers seeking a full-spectrum approach to cellular wellness.",

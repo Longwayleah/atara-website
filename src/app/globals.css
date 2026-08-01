@@ -1163,10 +1163,22 @@ html[data-standards-placement-drag] body {
   .shop-product-grid--desktop-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
+  /* Five-protocol lineup: 3-up so Refine stays on the first rows */
+  .shop-product-grid--desktop-protocols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .shop-product-grid--desktop-protocols {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
-  .shop-product-grid--desktop-4 {
+  .shop-product-grid--desktop-4,
+  .shop-product-grid--desktop-protocols {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

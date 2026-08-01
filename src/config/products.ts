@@ -41,7 +41,7 @@ export const products: Product[] = [
     slug: "glow",
     descriptor:
       "Support for healthy-looking skin, radiance, and cellular function.",
-    image: "/products/Atara_Radiance_Card_45.jpg",
+    image: "/products/Atara_Radiance_Card_45_v2.jpg",
     featured: true,
     collection: "core",
     variants: [
@@ -60,7 +60,7 @@ export const products: Product[] = [
     slug: "bpc-tb500",
     descriptor:
       "Support for recovery, repair, and overall physical performance.",
-    image: "/products/Atara_Recovery_Card_45.jpg",
+    image: "/products/Atara_Recovery_Card_45_v2.jpg",
     featured: true,
     collection: "core",
     variants: [
@@ -88,6 +88,25 @@ export const products: Product[] = [
         dosage: "500 mg",
         price: 109.99,
         squareCheckoutUrl: "https://square.link/u/QRjL35xW",
+      },
+    ],
+  },
+  {
+    id: "refine",
+    name: "Refine Protocol",
+    subtitle: "Retatrutide",
+    slug: "refine",
+    descriptor:
+      "Support for metabolic refinement, body composition, and energy balance — targeting three receptors: GLP, GIP, and glucagon.",
+    image: "/products/Atara_Refine_Card_45_v3.jpg",
+    featured: true,
+    collection: "core",
+    variants: [
+      {
+        id: "20mg",
+        dosage: "20 mg",
+        price: 249.99,
+        squareCheckoutUrl: "https://square.link/u/i0ikHwvp",
       },
     ],
   },
